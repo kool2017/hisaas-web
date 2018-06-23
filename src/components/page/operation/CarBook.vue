@@ -94,7 +94,7 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             ORCARINFOX: {},
             ORCARINFQRYZ: [{
@@ -142,11 +142,11 @@ export default {
             }
         }
     },
-    created () {
+    created() {
         // this.query();
     },
     methods: {
-        queryPage () {
+        queryPage() {
             let self = this
             var input = {
                 ORCARINFQRYX: [self.ORCARINFQRYX],
@@ -165,21 +165,21 @@ export default {
                     self.$message.error('查询出错了')
                 })
         },
-        handleSelectionChange (val) {
+        handleSelectionChange(val) {
             this.multipleSelection = val;
         },
-        handleSizeChange (pageSize) {
+        handleSizeChange(pageSize) {
             let self = this
             self.page.pageSize = pageSize
             self.page.currentPage = 1
             self.queryPage()
         },
-        handleCurrentChange (currentPage) {
+        handleCurrentChange(currentPage) {
             let self = this
             self.page.currentPage = currentPage
             self.queryPage()
         },
-        query () {
+        query() {
             this.page = {
                 pageSize: 10,
                 total: 0,
@@ -188,7 +188,7 @@ export default {
             }
             this.queryPage();
         },
-        editForm (formType, index) {
+        editForm(formType, index) {
             let self = this
             self.formType = formType
             self.addFormVisible = true
@@ -205,7 +205,7 @@ export default {
                 self.ORCARINFEDTX = self.ORCARINFQRYZ[index]
             }
         },
-        edit () {
+        edit() {
             let self = this
             var input = {
                 ORCARINFEDTX: [self.ORCARINFEDTX]
@@ -234,7 +234,7 @@ export default {
                 })
 
         },
-        closeOne (index) {
+        closeOne(index) {
             let self = this
             self.ORCARINFDELX = self.ORCARINFQRYZ[index]
             var input = {
@@ -260,17 +260,17 @@ export default {
 
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 .add-button {
-  position: fixed;
-  right: 70px;
+    position: fixed;
+    right: 70px;
 }
 </style>

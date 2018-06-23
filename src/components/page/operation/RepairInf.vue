@@ -80,7 +80,7 @@
                     <el-button slot="append" size=small  icon="el-icon-search">查询</el-button></el-input>
 
                 </el-form-item>
-                </el-input>
+                
 
                 </el-col>
                 </el-row>
@@ -96,28 +96,28 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             ORCARINFOX: {},
             ORCARINFQRYZ: [{
                 repairNbr: '1',
                 repairName: '刘亮',
-                repairSex:'130-9482-6454',
-                repairYear:'住院部骨科206室',
-                repairWhat:'灯不亮',
-                repairMan:'柳秦',
-                repairTel:'156-2364-4575',
-                repairPer:''
+                repairSex: '130-9482-6454',
+                repairYear: '住院部骨科206室',
+                repairWhat: '灯不亮',
+                repairMan: '柳秦',
+                repairTel: '156-2364-4575',
+                repairPer: ''
             },
             {
                 repairNbr: '2',
                 repairName: '宋艳艳',
-                repairSex:'181-3463-6856',
-                repairYear:'挂号大厅',
-                repairWhat:'墙边瓷砖脱落',
-                repairMan:'陈思明',
-                repairTel:'151-5467-0493',
-                repairPer:''
+                repairSex: '181-3463-6856',
+                repairYear: '挂号大厅',
+                repairWhat: '墙边瓷砖脱落',
+                repairMan: '陈思明',
+                repairTel: '151-5467-0493',
+                repairPer: ''
             }],
             ORCARINFEDTX: {
                 carNbr: '',
@@ -140,11 +140,11 @@ export default {
             }
         }
     },
-    created () {
-       // this.query();
+    created() {
+        // this.query();
     },
     methods: {
-        queryPage () {
+        queryPage() {
             let self = this
             var input = {
                 ORCARINFQRYX: [self.ORCARINFQRYX],
@@ -163,21 +163,21 @@ export default {
                     self.$message.error('查询出错了')
                 })
         },
-        handleSelectionChange (val) {
+        handleSelectionChange(val) {
             this.multipleSelection = val;
         },
-        handleSizeChange (pageSize) {
+        handleSizeChange(pageSize) {
             let self = this
             self.page.pageSize = pageSize
             self.page.currentPage = 1
             self.queryPage()
         },
-        handleCurrentChange (currentPage) {
+        handleCurrentChange(currentPage) {
             let self = this
             self.page.currentPage = currentPage
             self.queryPage()
         },
-        query () {
+        query() {
             this.page = {
                 pageSize: 10,
                 total: 0,
@@ -186,7 +186,7 @@ export default {
             }
             this.queryPage();
         },
-        editForm (formType, index) {
+        editForm(formType, index) {
             let self = this
             self.formType = formType
             self.addFormVisible = true
@@ -203,7 +203,7 @@ export default {
                 self.ORCARINFEDTX = self.ORCARINFQRYZ[index]
             }
         },
-        edit () {
+        edit() {
             let self = this
             var input = {
                 ORCARINFEDTX: [self.ORCARINFEDTX]
@@ -232,7 +232,7 @@ export default {
                 })
 
         },
-        closeOne (index) {
+        closeOne(index) {
             let self = this
             self.ORCARINFDELX = self.ORCARINFQRYZ[index]
             var input = {
@@ -258,17 +258,17 @@ export default {
 
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 .add-button {
-  position: fixed;
-  right: 70px;
+    position: fixed;
+    right: 70px;
 }
 </style>

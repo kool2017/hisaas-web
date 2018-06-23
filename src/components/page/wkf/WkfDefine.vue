@@ -70,7 +70,7 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             SYWKFDEFQRYX: {
                 swdWkfCode: ''
@@ -98,11 +98,11 @@ export default {
             closeOnclick: false
         }
     },
-    created () {
+    created() {
         this.query();
     },
     methods: {
-        query () {
+        query() {
             let self = this
             var input = {
                 SYWKFDEFQRYX: [this.SYWKFDEFQRYX]
@@ -119,7 +119,7 @@ export default {
                     self.$message.error('查询出错了')
                 })
         },
-        editForm (formType, index) {
+        editForm(formType, index) {
             let self = this
             self.formType = formType
             self.addFormVisible = true
@@ -138,7 +138,7 @@ export default {
                 self.SYWKFDEFEDTX = self.SYWKFDEFQRYZ[index]
             }
         },
-        edit () {
+        edit() {
             let self = this
             var input = {
                 SYWKFDEFEDTX: [self.SYWKFDEFEDTX]
@@ -168,7 +168,7 @@ export default {
                 })
 
         },
-        closeOne (index) {
+        closeOne(index) {
             let self = this
             self.SYWKFDEFDELX = self.SYWKFDEFQRYZ[index]
             var input = {
@@ -194,17 +194,17 @@ export default {
 
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .add-button {
-	position:fixed;
-	right:70px;
+    position: fixed;
+    right: 70px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 </style>

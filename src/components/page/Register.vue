@@ -27,74 +27,74 @@
 </template>
 
 <script>
-  import { Base64 } from 'js-base64'
-  export default {
-    data () {
-      return {
-        SYREGINFX: {
-          suiLoginName: '',
-          suiPwd: '',
-          suiPwdC: ''
-        }
+import { Base64 } from 'js-base64'
+export default {
+  data() {
+    return {
+      SYREGINFX: {
+        suiLoginName: '',
+        suiPwd: '',
+        suiPwdC: ''
       }
+    }
+  },
+  methods: {
+    successMsg() {
+      this.$message({
+        message: '注册成功，请登录',
+        type: 'success'
+      })
     },
-    methods: {
-      successMsg () {
-        this.$message({
-          message: '注册成功，请登录',
-          type: 'success'
-        })
-      },
-      submitForm () {
-        var input = {
-          SYREGINFX: [this.SYREGINFX]
-        }
-        input.SYREGINFX[0].suiPwd = Base64.encode(input.SYREGINFX[0].suiPwd)
-        input.SYREGINFX[0].suiPwdC = Base64.encode(input.SYREGINFX[0].suiPwdC)
-        this.$http.post('/user/register.json', input)
-          .then(function (response) {
-            console.log(response)
-            this.successMsg()
-          }.bind(this))
-          .catch(function (err) {
-            console.log(err)
-            this.$message.error('注册失败')
-          }.bind(this))
-      },
-      resetForm () {
-        this.SYREGINFX = {
-          suiLoginName: '',
-          suiPwd: '',
-          suiPwdC: ''
-        }
+    submitForm() {
+      var input = {
+        SYREGINFX: [this.SYREGINFX]
+      }
+      input.SYREGINFX[0].suiPwd = Base64.encode(input.SYREGINFX[0].suiPwd)
+      input.SYREGINFX[0].suiPwdC = Base64.encode(input.SYREGINFX[0].suiPwdC)
+      this.$http.post('/user/register.json', input)
+        .then(function (response) {
+          console.log(response)
+          this.successMsg()
+        }.bind(this))
+        .catch(function (err) {
+          console.log(err)
+          this.$message.error('注册失败')
+        }.bind(this))
+    },
+    resetForm() {
+      this.SYREGINFX = {
+        suiLoginName: '',
+        suiPwd: '',
+        suiPwdC: ''
       }
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .el-header {
+.el-header {
     background-color: #b3c0d1;
     color: #333;
     text-align: center;
     line-height: 60px;
-  }
+}
 
-  .el-main {
+.el-main {
     background-color: #e9eef3;
     color: #333;
     text-align: center;
     line-height: 160px;
-  }
+}
 
-  .el-col {
+.el-col {
     background: #99a9bf;
     padding-top: 20px;
-  }
+}
 
-  .el-form {
+.el-form {
     width: 400px;
     margin: auto;
-  }
+}
 </style>

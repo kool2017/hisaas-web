@@ -15,23 +15,23 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             name: 'kool',
             face: '../../../static/img/KOOL.jpg'
         }
     },
     computed: {
-        suiLoginName () {
+        suiLoginName() {
             let suiLoginName = localStorage.getItem('loginName')
             return suiLoginName ? suiLoginName : this.name
         }
     },
-    created () {
+    created() {
         this.face = localStorage.getItem('face')
     },
     methods: {
-        handleCommand (command) {
+        handleCommand(command) {
             if (command == 'loginout') {
                 let self = this
                 self.$http
@@ -51,42 +51,42 @@ export default {
 </script>
 <style scoped>
 .header {
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  height: 70px;
-  font-size: 22px;
-  line-height: 70px;
-  color: #fff;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    font-size: 22px;
+    line-height: 70px;
+    color: #fff;
 }
 .header .logo {
-  float: left;
-  width: 500px;
-  text-align: center;
+    float: left;
+    width: 500px;
+    text-align: center;
 }
 .user-info {
-  float: right;
-  padding-right: 50px;
-  font-size: 16px;
-  color: #fff;
+    float: right;
+    padding-right: 50px;
+    font-size: 16px;
+    color: #fff;
 }
 .user-info .el-dropdown-link {
-  position: relative;
-  display: inline-block;
-  padding-left: 50px;
-  color: #fff;
-  cursor: pointer;
-  vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    padding-left: 50px;
+    color: #fff;
+    cursor: pointer;
+    vertical-align: middle;
 }
 .user-info .user-logo {
-  position: absolute;
-  left: 0;
-  top: 15px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 .el-dropdown-menu__item {
-  text-align: center;
+    text-align: center;
 }
 </style>

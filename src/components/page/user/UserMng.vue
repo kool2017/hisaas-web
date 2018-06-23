@@ -57,7 +57,7 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             SYUSRINFQRYX: {
                 suiLoginName: ''
@@ -94,11 +94,11 @@ export default {
             }
         }
     },
-    created () {
+    created() {
         this.query();
     },
     methods: {
-        queryPage () {
+        queryPage() {
             let self = this
             var input = {
                 SYUSRINFQRYX: [self.SYUSRINFQRYX],
@@ -109,6 +109,7 @@ export default {
                 .then((res) => {
                     // var pkgOut = JSON.parse(res.data)
                     var pkgOut = res.data
+                    console.log(JSON.stringify(pkgOut))
                     self.SYUSRINFQRYZ = pkgOut.SYUSRINFQRYZ
                     self.page = pkgOut.SYPAGEINFOY[0]
                 })
@@ -117,19 +118,19 @@ export default {
                     self.$message.error('查询出错了')
                 })
         },
-        handleSizeChange (pageSize) {
+        handleSizeChange(pageSize) {
             let self = this
-            self.page.pageSize=pageSize
-            self.page.currentPage=1
+            self.page.pageSize = pageSize
+            self.page.currentPage = 1
             self.queryPage()
         },
-        handleCurrentChange (currentPage) {
+        handleCurrentChange(currentPage) {
             let self = this
-            self.page.currentPage=currentPage
+            self.page.currentPage = currentPage
             self.queryPage()
         },
-        query () {
-           this.page= {
+        query() {
+            this.page = {
                 pageSize: 10,
                 total: 0,
                 pageCount: 0,
@@ -137,7 +138,7 @@ export default {
             }
             this.queryPage();
         },
-        editForm (formType, index) {
+        editForm(formType, index) {
             let self = this
             self.formType = formType
             self.addFormVisible = true
@@ -155,7 +156,7 @@ export default {
                 self.SYUSRINFEDTX = self.SYUSRINFQRYZ[index]
             }
         },
-        edit () {
+        edit() {
             let self = this
             var input = {
                 SYUSRINFEDTX: [self.SYUSRINFEDTX]
@@ -184,7 +185,7 @@ export default {
                 })
 
         },
-        closeOne (index) {
+        closeOne(index) {
             let self = this
             self.SYUSRINFDELX = self.SYUSRINFQRYZ[index]
             var input = {
@@ -209,17 +210,17 @@ export default {
 </script>
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .add-button {
-  position: fixed;
-  right: 70px;
+    position: fixed;
+    right: 70px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 </style>

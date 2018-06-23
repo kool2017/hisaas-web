@@ -116,32 +116,32 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             ORCARINFOX: {},
             ORCARINFQRYZ: [{
                 carNbr: '1',
                 carType: '5座小客车',
-                carID:'沪C97LD7',
-                carBackTime:'2018/07/02 15:30',
-                carDriver:'孙笑笑',
-                carDriverTel:'186-4038-3732',
+                carID: '沪C97LD7',
+                carBackTime: '2018/07/02 15:30',
+                carDriver: '孙笑笑',
+                carDriverTel: '186-4038-3732',
                 carBackMile: '3908',
-                carOil:'1/2',
-                carOilMey:'500',
-                carStsTxt:'良好'
+                carOil: '1/2',
+                carOilMey: '500',
+                carStsTxt: '良好'
             },
             {
                 carNbr: '2',
                 carType: '7座小客车',
-                carID:'浙A58E56',
-                carBackTime:'2018/05/02 15:30',
-                carDriver:'李鹏程',
-                carDriverTel:'187-4642-5315',
+                carID: '浙A58E56',
+                carBackTime: '2018/05/02 15:30',
+                carDriver: '李鹏程',
+                carDriverTel: '187-4642-5315',
                 carBackMile: '10377',
-                carOil:'1/4',
-                carOilMey:'297',
-                carStsTxt:'已到保养里程数'
+                carOil: '1/4',
+                carOilMey: '297',
+                carStsTxt: '已到保养里程数'
             }],
             ORCARINFEDTX: {
                 carNbr: '',
@@ -165,11 +165,11 @@ export default {
             }
         }
     },
-    created () {
-       // this.query();
+    created() {
+        // this.query();
     },
     methods: {
-        queryPage () {
+        queryPage() {
             let self = this
             var input = {
                 ORCARINFQRYX: [self.ORCARINFQRYX],
@@ -188,29 +188,29 @@ export default {
                     self.$message.error('查询出错了')
                 })
         },
-        handleSelectionChange (val) {
+        handleSelectionChange(val) {
             this.multipleSelection = val;
         },
-        handleSizeChange (pageSize) {
+        handleSizeChange(pageSize) {
             let self = this
             self.page.pageSize = pageSize
             self.page.currentPage = 1
             self.queryPage()
         },
-        handleCurrentChange (currentPage) {
+        handleCurrentChange(currentPage) {
             let self = this
             self.page.currentPage = currentPage
             self.queryPage()
         },
-        carChange () {
-           var a = document.getElementById('txt');
-           a.disabled = false;
-           console.log(a.disabled);
+        carChange() {
+            var a = document.getElementById('txt');
+            a.disabled = false;
+            console.log(a.disabled);
 
 
 
         },
-        query () {
+        query() {
             this.page = {
                 pageSize: 10,
                 total: 0,
@@ -219,7 +219,7 @@ export default {
             }
             this.queryPage();
         },
-        editForm (formType, index) {
+        editForm(formType, index) {
             let self = this
             self.formType = formType
             self.addFormVisible = true
@@ -236,7 +236,7 @@ export default {
                 self.ORCARINFEDTX = self.ORCARINFQRYZ[index]
             }
         },
-        edit () {
+        edit() {
             let self = this
             var input = {
                 ORCARINFEDTX: [self.ORCARINFEDTX]
@@ -265,7 +265,7 @@ export default {
                 })
 
         },
-        closeOne (index) {
+        closeOne(index) {
             let self = this
             self.ORCARINFDELX = self.ORCARINFQRYZ[index]
             var input = {
@@ -291,17 +291,17 @@ export default {
 
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 .add-button {
-  position: fixed;
-  right: 70px;
+    position: fixed;
+    right: 70px;
 }
 </style>

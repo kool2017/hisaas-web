@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import vHead from './Header.vue';
-import vSidebar from './Sidebar.vue';
+import vHead from './Header.vue'
+import vSidebar from './Sidebar.vue'
 export default {
-    created () {
+    created() {
         // this.$notify({
         //     title: '审批流签收功能说明',
         //     message: '演示系统配置的流程：增加用户-审批1-审批2-终审；其中"审批1"结点的工作组包括"bb"、"testb"2个用户；工作组中1人签收后，其他人无法对该结点进行审批',
@@ -30,12 +30,13 @@ export default {
         // })
     },
     components: {
-        vHead, vSidebar
+        vHead,
+        vSidebar
     }
 }
 </script>
 <style scoped>
 .content {
-  background-color: rgb(228, 237, 252);
+    background-color: rgb(228, 237, 252);
 }
 </style>

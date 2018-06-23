@@ -59,11 +59,11 @@
             </el-table-column>
         </el-table>
         <el-dialog title="详情" :visible.sync="detailFormVisible" :close-on-click-modal="closeOnclick">
-            <el-form :model="SYDETAILQRYZ">
+            <!-- <el-form :model="SYDETAILQRYZ">
                 <el-form-item label="新建用户登录名">
                     <el-input type="textarea" auto-complete="off" maxlength=100 :rows="{minRows: 2, maxRows: 4}"></el-input>
                 </el-form-item>
-            </el-form>
+            </el-form> -->
         </el-dialog>
         <div class="pagination">
             <el-pagination layout="total, sizes, prev, pager, next, jumper" @size-change="handleSizeChange" @current-change="handleCurrentChange" :page-size="page.pageSize" :total="page.total" :page-count="page.pageCount" :current-page="page.currentPage" :page-sizes="[10, 50, 100]">
@@ -73,46 +73,48 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             SYSCHEDULEX: {
                 recordId: '',
                 businessType: ''
             },
-            SYSCHEDULEZ: [{
-                srcRecordId: '',
-                srcTimeBegin: '',
-                srcTimeEnd: '',
-                srcWkfCode: '',
-                srcEntityId: '',
-                srcBusinessId: '',
-                srcBusinessType: '',
-                srcNodeHead: '',
-                srcNodeHeadName: '',
-                srcStartUserId: '',
-                srcStartLoginName: '',
-                srcEndUserId: '',
-                srcEndLoginName: '',
-                srcDescription: '',
-                srcRecordStatus: '',
-                swsScheduleId: '',
-                swsRecordId: '',
-                swsLastNodeId: '',
-                swsLastNodeName: '',
-                swsLastUserId: '',
-                swsLastLoginName: '',
-                swsScheduleNodeId: '',
-                swsScheduleNodeName: '',
-                swsWgId: '',
-                swsWgName: '',
-                swsScheduleUserId: '',
-                swsScheduleLoginName: '',
-                swsBranchFlag: '',
-                swsBranchHeadId: '',
-                swsBranchHeadName: '',
-                swsScheduleStatus: '',
-                swsCreateTime: ''
-            }],
+            SYSCHEDULEZ: [
+                {
+                    srcRecordId: '',
+                    srcTimeBegin: '',
+                    srcTimeEnd: '',
+                    srcWkfCode: '',
+                    srcEntityId: '',
+                    srcBusinessId: '',
+                    srcBusinessType: '',
+                    srcNodeHead: '',
+                    srcNodeHeadName: '',
+                    srcStartUserId: '',
+                    srcStartLoginName: '',
+                    srcEndUserId: '',
+                    srcEndLoginName: '',
+                    srcDescription: '',
+                    srcRecordStatus: '',
+                    swsScheduleId: '',
+                    swsRecordId: '',
+                    swsLastNodeId: '',
+                    swsLastNodeName: '',
+                    swsLastUserId: '',
+                    swsLastLoginName: '',
+                    swsScheduleNodeId: '',
+                    swsScheduleNodeName: '',
+                    swsWgId: '',
+                    swsWgName: '',
+                    swsScheduleUserId: '',
+                    swsScheduleLoginName: '',
+                    swsBranchFlag: '',
+                    swsBranchHeadId: '',
+                    swsBranchHeadName: '',
+                    swsScheduleStatus: '',
+                    swsCreateTime: ''
+                }
+            ],
             SYAPPROVEX: {
                 recordId: '',
                 scheduleId: '',
@@ -135,174 +137,174 @@ export default {
                 pageCount: 0,
                 currentPage: 1
             }
-        }
+        };
     },
-    created () {
+    created() {
         this.query();
     },
     methods: {
-        queryPage () {
-            let self = this
+        queryPage() {
+            let self = this;
             var input = {
                 SYSCHEDULEX: [self.SYSCHEDULEX],
                 SYPAGEINFOY: [self.page]
-            }
+            };
             self.$http
                 .post('/wkf/wkfQuerySchedules.json', input)
-                .then((res) => {
+                .then(res => {
                     // var pkgOut = JSON.parse(res.data)
-                    var pkgOut = res.data
-                    self.SYSCHEDULEZ = pkgOut.SYSCHEDULEZ
-                    self.page = pkgOut.SYPAGEINFOY[0]
+                    var pkgOut = res.data;
+                    self.SYSCHEDULEZ = pkgOut.SYSCHEDULEZ;
+                    self.page = pkgOut.SYPAGEINFOY[0];
                 })
-                .catch((err) => {
-                    console.log(err)
-                    self.$message.error('查询出错了')
-                })
+                .catch(err => {
+                    console.log(err);
+                    self.$message.error('查询出错了');
+                });
         },
-        handleSizeChange (pageSize) {
-            let self = this
-            self.page.pageSize=pageSize
-            self.page.currentPage=1
-            self.queryPage()
+        handleSizeChange(pageSize) {
+            let self = this;
+            self.page.pageSize = pageSize;
+            self.page.currentPage = 1;
+            self.queryPage();
         },
-        handleCurrentChange (currentPage) {
-            let self = this
-            self.page.currentPage=currentPage
-            self.queryPage()
+        handleCurrentChange(currentPage) {
+            let self = this;
+            self.page.currentPage = currentPage;
+            self.queryPage();
         },
-        query () {
-           this.page= {
+        query() {
+            this.page = {
                 pageSize: 10,
                 total: 0,
                 pageCount: 0,
                 currentPage: 1
-            }
+            };
             this.queryPage();
         },
-        approveForm (index) {
-            let self = this
-            self.approveFormVisible = true
-            self.SYAPPROVEX.recordId = self.SYSCHEDULEZ[index].swsRecordId
-            self.SYAPPROVEX.scheduleId = self.SYSCHEDULEZ[index].swsScheduleId
+        approveForm(index) {
+            let self = this;
+            self.approveFormVisible = true;
+            self.SYAPPROVEX.recordId = self.SYSCHEDULEZ[index].swsRecordId;
+            self.SYAPPROVEX.scheduleId = self.SYSCHEDULEZ[index].swsScheduleId;
         },
-        agree () {
-            let self = this
-            self.SYAPPROVEX.approveFlag = 'Y'
+        agree() {
+            let self = this;
+            self.SYAPPROVEX.approveFlag = 'Y';
             var input = {
                 SYAPPROVEX: [self.SYAPPROVEX]
-            }
+            };
             self.$http
                 .post('/wkf/wkfApprove.json', input)
-                .then((res) => {
-                    var pkgOut = res.data
+                .then(res => {
+                    var pkgOut = res.data;
                     // var pkgOut = JSON.parse(res.data)
-                    self.approveFormVisible = false
-                    self.query()
+                    self.approveFormVisible = false;
+                    self.query();
                     self.$message({
                         message: '已审批',
                         type: 'success'
-                    })
+                    });
                 })
-                .catch((err) => {
-                    console.log(err)
-                    self.$message.error('审批出错了')
-                })
-
+                .catch(err => {
+                    console.log(err);
+                    self.$message.error('审批出错了');
+                });
         },
-        reject () {
-            let self = this
-            self.SYAPPROVEX.approveFlag = 'N'
+        reject() {
+            let self = this;
+            self.SYAPPROVEX.approveFlag = 'N';
             var input = {
                 SYAPPROVEX: [self.SYAPPROVEX]
-            }
+            };
             self.$http
                 .post('/wkf/wkfApprove.json', input)
-                .then((res) => {
-                    var pkgOut = res.data
+                .then(res => {
+                    var pkgOut = res.data;
                     // var pkgOut = JSON.parse(res.data)
-                    self.approveFormVisible = false
-                    self.query()
+                    self.approveFormVisible = false;
+                    self.query();
                     self.$message({
                         message: '已审批',
                         type: 'success'
-                    })
+                    });
                 })
-                .catch((err) => {
-                    console.log(err)
-                    self.$message.error('审批出错了')
-                })
-
+                .catch(err => {
+                    console.log(err);
+                    self.$message.error('审批出错了');
+                });
         },
-        checkConfirm (index) {
-            let self = this
-            self.SYCHECKX.recordId = self.SYSCHEDULEZ[index].swsRecordId
-            self.SYCHECKX.scheduleId = self.SYSCHEDULEZ[index].swsScheduleId
-            self.$confirm('确认签收吗?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'info'
-            }).then(() => {
-                var input = {
-                    SYCHECKX: [self.SYCHECKX]
-                }
-                self.$http
-                    .post('/wkf/wkfCheck.json', input)
-                    .then((res) => {
-                        var pkgOut = res.data
-                        // var pkgOut = JSON.parse(res.data)
-                        self.query()
-                        self.$message({
-                            message: '签收成功',
-                            type: 'success'
+        checkConfirm(index) {
+            let self = this;
+            self.SYCHECKX.recordId = self.SYSCHEDULEZ[index].swsRecordId;
+            self.SYCHECKX.scheduleId = self.SYSCHEDULEZ[index].swsScheduleId;
+            self
+                .$confirm('确认签收吗?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'info'
+                })
+                .then(() => {
+                    var input = {
+                        SYCHECKX: [self.SYCHECKX]
+                    };
+                    self.$http
+                        .post('/wkf/wkfCheck.json', input)
+                        .then(res => {
+                            var pkgOut = res.data;
+                            // var pkgOut = JSON.parse(res.data)
+                            self.query();
+                            self.$message({
+                                message: '签收成功',
+                                type: 'success'
+                            });
                         })
-                    })
-                    .catch((err) => {
-                        console.log(err)
-                        self.$message.error('签收出错了')
-                    })
-            }).catch(() => {
-                self.$message({
-                    type: 'info',
-                    message: '已取消签收'
+                        .catch(err => {
+                            console.log(err);
+                            self.$message.error('签收出错了');
+                        });
                 })
-            })
-
+                .catch(() => {
+                    self.$message({
+                        type: 'info',
+                        message: '已取消签收'
+                    });
+                });
         },
-        showDetail (index) {
-            let self = this
-            self.SYDETAILQRYX = self.SYWKFRECQRYZ[index]
-            var input = {
-                SYDETAILQRYX: [self.SYDETAILQRYX]
-            }
-            self.$http
-                .post('/wkf/wkfApproveDetail.json', input)
-                .then((res) => {
-                    var pkgOut = res.data
-                    self.SYDETAILQRYZ = pkgOut.SYDETAILQRYZ[0]
-                    console.log(self.SYDETAILQRYZ)
-                })
-                .catch((err) => {
-                    console.log(err)
-                    self.$message.error('查询出错了')
-                })
+        showDetail(index) {
+            // let self = this
+            // self.SYDETAILQRYX = self.SYWKFRECQRYZ[index]
+            // var input = {
+            //     SYDETAILQRYX: [self.SYDETAILQRYX]
+            // }
+            // self.$http
+            //     .post('/wkf/wkfApproveDetail.json', input)
+            //     .then((res) => {
+            //         var pkgOut = res.data
+            //         self.SYDETAILQRYZ = pkgOut.SYDETAILQRYZ[0]
+            //         console.log(self.SYDETAILQRYZ)
+            //     })
+            //     .catch((err) => {
+            //         console.log(err)
+            //         self.$message.error('查询出错了')
+            //     })
         }
     }
-}
+};
 </script>
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .add-button {
-  position: fixed;
-  right: 70px;
+    position: fixed;
+    right: 70px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 </style>

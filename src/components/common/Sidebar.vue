@@ -65,62 +65,142 @@ export default {
                     title: '首页'
                 },
                 {
-                    icon: 'el-icon-setting',
-                    index: 'machine',
-                    title: '设备管理',
+                    icon: '',
+                    index: 'exam-centre',
+                    title: '检查预约中心',
                     subMenus: [
                         {
-                            index: 'machine-status',
-                            title: '设备运行状态查询'
+                            index: 'exam-open',
+                            title: '开检查单'
                         },
                         {
-                            index: 'machine-infomation',
+                            index: 'exam-order',
+                            title: '预约'
+                        },
+                        {
+                            index: 'exam-lock',
+                            title: '锁号'
+                        },
+                        {
+                            index: 'exam-add',
+                            title: '加号'
+                        },
+                        {
+                            index: 'exam-checkin',
+                            title: '签到'
+                        },
+                        {
+                            index: 'exam-query-exambook',
+                            title: '查询检查单'
+                        },
+                        {
+                            index: 'exam-query-orderbook',
+                            title: '查询预约单'
+                        },
+                        {
+                            index: 'exam-query-number',
+                            title: '查询号码'
+                        }
+                    ]
+                },
+                {
+                    icon: '',
+                    index: 'nurse-centre',
+                    title: '护士站',
+                    subMenus: [
+                        {
+                            index: 'nurse-exam-info',
+                            title: '查询检查单'
+                        }
+                    ]
+                },
+                {
+                    icon: '',
+                    index: 'report',
+                    title: '报表',
+                    subMenus: [
+                        {
+                            index: 'report-exam-global',
+                            title: '检查预约综合报表'
+                        }
+                    ]
+                },
+                {
+                    icon: '',
+                    index: 'operation-centre',
+                    title: '系统维护',
+                    subMenus: [
+                        {
+                            index: 'operation-exam-type',
+                            title: '检查分类维护'
+                        },
+                        {
+                            index: 'operation-fee',
+                            title: '收费套餐维护'
+                        },
+                        {
+                            index: 'operation-device',
                             title: '设备信息维护'
                         }
                     ]
-                },
-                {
-                    icon: 'el-icon-location',
-                    index: 'car',
-                    title: '车辆管理',
-                    subMenus: [
-                        {
-                            index: 'car-infomation',
-                            title: '车辆信息维护'
-                        },
-                        {
-                            index: 'car-booking',
-                            title: '车辆预定'
-                        },
-                        {
-                            index: 'car-use',
-                            title: '出车'
-                        },
-                        {
-                            index: 'car-back',
-                            title: '收车'
-                        }
-                    ]
-                },
-                {
-                    icon: 'el-icon-service',
-                    index: 'repair',
-                    title: '维修中心',
-                    subMenus: [
-                        {
-                            index: 'repair-infomation',
-                            title: '维修单维护'
-                        },
-                        {
-                            index: 'repair-repairman',
-                            title: '维修人员信息维护'
-                        },
-                        {
-                            index: 'repair-booking',
-                            title: '报修'
-                        }
-                    ]
-                },
+                }
+                // {
+                //     icon: 'el-icon-setting',
+                //     index: 'machine',
+                //     title: '设备管理',
+                //     subMenus: [
+                //         {
+                //             index: 'machine-status',
+                //             title: '设备运行状态查询'
+                //         },
+                //         {
+                //             index: 'machine-infomation',
+                //             title: '设备信息维护'
+                //         }
+                //     ]
+                // },
+                // {
+                //     icon: 'el-icon-location',
+                //     index: 'car',
+                //     title: '车辆管理',
+                //     subMenus: [
+                //         {
+                //             index: 'car-infomation',
+                //             title: '车辆信息维护'
+                //         },
+                //         {
+                //             index: 'car-booking',
+                //             title: '车辆预定'
+                //         },
+                //         {
+                //             index: 'car-use',
+                //             title: '出车'
+                //         },
+                //         {
+                //             index: 'car-back',
+                //             title: '收车'
+                //         }
+                //     ]
+                // },
+                // {
+                //     icon: 'el-icon-service',
+                //     index: 'repair',
+                //     title: '维修中心',
+                //     subMenus: [
+                //         {
+                //             index: 'repair-infomation',
+                //             title: '维修单维护'
+                //         },
+                //         {
+                //             index: 'repair-repairman',
+                //             title: '维修人员信息维护'
+                //         },
+                //         {
+                //             index: 'repair-booking',
+                //             title: '报修'
+                //         }
+                //     ]
+                // },
                 // {
                 //     icon: 'el-icon-bell',
                 //     index: 'warning',
@@ -351,27 +431,27 @@ export default {
                 //         }
                 //     ]
                 // },
-                {
-                    icon: 'el-icon-setting',
-                    index: 'usermng',
-                    title: '用户管理'
-                }
+                // {
+                //     icon: 'el-icon-setting',
+                //     index: 'usermng',
+                //     title: '用户管理'
+                // },
                 // {
                 //     icon: 'el-icon-setting',
                 //     index: 'wkfmng',
                 //     title: '工作流管理',
                 //     subMenus: [
-                //         // {
-                //         //     index: 'wkfdefine',
-                //         //     title: '工作流定义'
-                //         // },
-                //         // {
-                //         //     index: 'wkfentity',
-                //         //     title: '工作流实例维护'
-                //         // }, {
-                //         //     index: 'wkfnode',
-                //         //     title: '结点维护'
-                //         // },
+                // {
+                //     index: 'wkfdefine',
+                //     title: '工作流定义'
+                // },
+                // {
+                //     index: 'wkfentity',
+                //     title: '工作流实例维护'
+                // }, {
+                //     index: 'wkfnode',
+                //     title: '结点维护'
+                // },
                 //         {
                 //             index: 'approve',
                 //             title:'审批'
@@ -465,29 +545,30 @@ export default {
                 //     ]
                 // }
             ]
-        };
+        }
     },
     created() {
-        const self = this;
-        var userId = localStorage.getItem('userId');
-        var input = { SYGETMENUX: [userId] };
+        const self = this
+        var userId = localStorage.getItem('userId')
+        var input = { SYGETMENUX: [userId] }
         self.$http
             .post('/sys/getMenu', input)
-            .then(function(response) {
-                var pkgOut = response.data;
-                this.menus = pkgOut.SYGETMENUZ;
+            .then(function (response) {
+                var pkgOut = response.data
+                console.log()
+                this.menus = pkgOut.SYGETMENUZ
             })
-            .catch(function(err) {
-                console.log(err);
-                self.$message.error('加载菜单信息时出现异常');
-            });
+            .catch(function (err) {
+                console.log(err)
+                self.$message.error('加载菜单信息时出现异常')
+            })
     },
     computed: {
         onRoutes() {
-            return this.$route.path.replace('/', '');
+            return this.$route.path.replace('/', '')
         }
     }
-};
+}
 </script>
 
 <style scoped>

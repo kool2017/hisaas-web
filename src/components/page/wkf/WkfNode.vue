@@ -41,13 +41,13 @@
 
 <script>
 export default {
-    data () {
+    data() {
         return {
             SYWKFNODQRYX: {
                 sweBusType: ''
             },
             SYWKFNODQRYZ: [{
-                swnNodeId:'',
+                swnNodeId: '',
                 swnNodeName: '',
                 swnLoginName: '',
                 seq: ''
@@ -66,11 +66,11 @@ export default {
             closeOnclick: false
         }
     },
-    created () {
+    created() {
         this.query();
     },
     methods: {
-        query () {
+        query() {
             let self = this
             var input = {
                 SYWKFNODQRYX: [this.SYWKFNODQRYX]
@@ -87,7 +87,7 @@ export default {
                     self.$message.error('查询出错了')
                 })
         },
-        editForm (formType, index) {
+        editForm(formType, index) {
             let self = this
             self.formType = formType
             self.addFormVisible = true
@@ -95,29 +95,29 @@ export default {
                 self.isUpdate = false
             }
         },
-        edit () {
+        edit() {
             let self = this
 
         },
-        submit(){
+        submit() {
 
         },
-        dragstartEvent (ev) {
+        dragstartEvent(ev) {
             const self = this;
             self.dragElement = ev.target;
             ev.target.style.backgroundColor = '#f8f8f8';
         },
-        dragendEvent (ev) {
+        dragendEvent(ev) {
             ev.target.style.backgroundColor = '#fff';
             ev.preventDefault();
         },
-        dragenterEvent (ev) {
+        dragenterEvent(ev) {
             const self = this;
             if (self.dragElement != ev.target) {
                 ev.target.parentNode.insertBefore(self.dragElement, ev.target);
             }
         },
-        dragleaveEvent (ev) {
+        dragleaveEvent(ev) {
             const self = this;
             if (self.dragElement != ev.target) {
                 if (self.lock && (ev.target == ev.target.parentNode.lastElementChild || ev.target == ev.target.parentNode.lastChild)) {
@@ -128,7 +128,7 @@ export default {
                 }
             }
         },
-        dragoverEvent (ev) {
+        dragoverEvent(ev) {
             ev.preventDefault();
         }
     }
@@ -137,21 +137,21 @@ export default {
 
 <style scoped>
 .handle-box {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .add-button {
-	position:fixed;
-	right:90px;
+    position: fixed;
+    right: 90px;
 }
 .submit-button {
-	position:fixed;
-	right:70px;
+    position: fixed;
+    right: 70px;
 }
 .handle-select {
-  width: 120px;
+    width: 120px;
 }
 .handle-input {
-  width: 300px;
-  display: inline-block;
+    width: 300px;
+    display: inline-block;
 }
 </style>

@@ -19,7 +19,7 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             SYGENCODEX: {
                 PACKAGE: '',
@@ -33,7 +33,7 @@ export default {
         };
     },
     methods: {
-        generate () {
+        generate() {
             let self = this
             var input = {
                 SYGENCODEX: [self.SYGENCODEX]
@@ -56,8 +56,8 @@ export default {
 </script>
 <style scoped>
 .wrap {
-  width: 50%;
-  position: relative;
-  margin: 10px;
+    width: 50%;
+    position: relative;
+    margin: 10px;
 }
 </style>

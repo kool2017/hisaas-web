@@ -30,7 +30,7 @@
 <script>
 import moment from 'moment'
 export default {
-    data () {
+    data() {
         return {
             month: '',
             calendarData: [
@@ -46,16 +46,16 @@ export default {
             ]
         }
     },
-    created () {
+    created() {
         this.month = moment().format('YYYY-MM')
         this.reflash()
     },
     methods: {
-        headerCellClassName ({ row, rowIndex }) {
+        headerCellClassName({ row, rowIndex }) {
             console.log(JSON.stringify(row))
             return 'header-cell'
         },
-        tableCellClassName ({ row, column, rowIndex, columnIndex }) {
+        tableCellClassName({ row, column, rowIndex, columnIndex }) {
             let date = moment(row.sun.date).format('YYYY-MM')
             if (columnIndex === 0 && moment(row.sun.date).format('YYYY-MM') === this.month) {
                 return 'current-month-cell';
@@ -74,7 +74,7 @@ export default {
             }
             return ''
         },
-        goLastMonth () {
+        goLastMonth() {
             let self = this
             let month = self.month
             self.month = moment(month).subtract(1, 'months').format('YYYY-MM')
@@ -92,13 +92,13 @@ export default {
             //         console.log(err)
             //     })
         },
-        goNextMonth () {
+        goNextMonth() {
             let self = this
             let month = self.month
             self.month = moment(month).add(1, 'months').format('YYYY-MM')
             self.reflash()
         },
-        reflash () {
+        reflash() {
             let firstOfMonth = moment(this.month).format('YYYY-MM-01')
             let dayOfWeek = moment(firstOfMonth).isoWeekday()
             let beginOfCalendar = moment(firstOfMonth).subtract(dayOfWeek, 'd').format('YYYY-MM-DD')
@@ -119,7 +119,7 @@ export default {
                 tempDate = moment(tempDate).add(7, 'd').format('YYYY-MM-DD')
             }
         },
-        change () {
+        change() {
             this.reflash()
         }
     }
@@ -128,18 +128,18 @@ export default {
 
 <style>
 #calendar {
-  width: 1052px;
+    width: 1052px;
 }
 #calendar .c-body {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 #calendar .el-table .header-cell {
-  background: rgb(53, 235, 135);
+    background: rgb(53, 235, 135);
 }
 #calendar .el-table .current-month-cell {
-  background: #d5ebfd;
+    background: #d5ebfd;
 }
 #calendar .el-table .el-table__row :hover {
-  background: #d7f389;
+    background: #d7f389;
 }
 </style>

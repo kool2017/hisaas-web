@@ -101,15 +101,15 @@ export default {
 
 <style scoped>
 .schart {
-  width: 800px;
-  display: inline-block;
+    width: 800px;
+    display: inline-block;
 }
 .content-title {
-  clear: both;
-  font-weight: 400;
-  line-height: 50px;
-  margin: 10px 0;
-  font-size: 22px;
-  color: #1f2f3d;
+    clear: both;
+    font-weight: 400;
+    line-height: 50px;
+    margin: 10px 0;
+    font-size: 22px;
+    color: #1f2f3d;
 }
 </style>

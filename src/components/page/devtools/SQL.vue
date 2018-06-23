@@ -12,28 +12,28 @@
 </template>
 <script>
 export default {
-    data () {
+    data() {
         return {
             fileList: [
             ],
             sql: '',
-            SYXLSSQLZ:[]
+            SYXLSSQLZ: []
         };
     },
     methods: {
-        showSql (response, file, fileList) {
+        showSql(response, file, fileList) {
             this.sql = response.SYXLSSQLZ[0].sql
         }
     }
 }
 </script>
 <style scoped>
-.wrap{
+.wrap {
     width: 50%;
     position: relative;
     margin: 10px;
 }
 .upload-demo {
-  width:50%;
+    width: 50%;
 }
 </style>

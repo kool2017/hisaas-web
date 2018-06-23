@@ -77,43 +77,43 @@ export default new Router({
                     component: resolve => require(['../components/page/devtools/CodeGen.vue'], resolve) // 生成代码
                 },
                 {
-                    path:'/develop-mock',
+                    path: '/develop-mock',
                     component: resolve => require(['../components/page/oa/Schedular.vue'], resolve)
                 },
                 {
-                    path:'/machine-status',
+                    path: '/machine-status',
                     component: resolve => require(['../components/page/operation/MachineStatus.vue'], resolve) // 设备运行状态查询
                 },
                 {
-                    path:'/machine-infomation',
+                    path: '/machine-infomation',
                     component: resolve => require(['../components/page/operation/MachineInfo.vue'], resolve) // 设备信息维护
                 },
                 {
-                    path:'/car-infomation',
+                    path: '/car-infomation',
                     component: resolve => require(['../components/page/operation/CarMng.vue'], resolve) // 车辆信息维护
                 },
                 {
-                    path:'/car-booking',
+                    path: '/car-booking',
                     component: resolve => require(['../components/page/operation/CarBook.vue'], resolve) // 车辆预定
                 },
                 {
-                    path:'/car-use',
+                    path: '/car-use',
                     component: resolve => require(['../components/page/operation/CarUse.vue'], resolve) // 出车
                 },
                 {
-                    path:'/car-back',
+                    path: '/car-back',
                     component: resolve => require(['../components/page/operation/CarBack.vue'], resolve) // 收车
                 },
                 {
-                    path:'/repair-infomation',
+                    path: '/repair-infomation',
                     component: resolve => require(['../components/page/operation/RepairInf.vue'], resolve) // 维修单维护
                 },
                 {
-                    path:'/repair-repairman',
+                    path: '/repair-repairman',
                     component: resolve => require(['../components/page/operation/RepairMan.vue'], resolve) // 维修人员维护
                 },
                 {
-                    path:'/repair-booking',
+                    path: '/repair-booking',
                     component: resolve => require(['../components/page/operation/RepairBook.vue'], resolve) // 报修
                 }
             ]
