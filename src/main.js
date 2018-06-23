@@ -14,12 +14,19 @@ axios.defaults.baseURL = 'http://localhost/hisaas'
 axios.defaults.withCredentials = true
 axios.interceptors.response.use(
     response => {
+        var pkgOut = response.data
+        var SYCOMMUNZ = pkgOut.SYCOMMUNZ
+        var errorCode = SYCOMMUNZ[0].ERROR_CODE
+        var errorMsg = SYCOMMUNZ[0].ERROR_MSG
+        if (errorCode != '0000000') {
+            return Promise.reject(errorMsg);
+        }
         return response;
     },
     error => {
         if (error.response) {
             if (error.response.status == 401) {
-                router.push('/');
+                router.push('/')
             }
         }
         return Promise.reject(error.response.data) // 返回接口返回的错误信息

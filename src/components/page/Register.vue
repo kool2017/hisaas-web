@@ -57,8 +57,8 @@ export default {
           this.successMsg()
         }.bind(this))
         .catch(function (err) {
-          console.log(err)
-          this.$message.error('注册失败')
+          // console.log(err)
+          // this.$message.error('注册失败')
         }.bind(this))
     },
     resetForm() {

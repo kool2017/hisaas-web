@@ -163,9 +163,10 @@ export default {
                     })
                     this.paneName = 'login'
                 }.bind(this))
-                .catch(function (err) {
-                    console.log(err)
-                    this.$message.error('注册失败')
+                .catch(function (errorMsg) {
+                    this.$alert(errorMsg,'错误提示',{
+                        confirmButtonText:'确定'
+                    })
                 }.bind(this))
         },
         changeTab() {

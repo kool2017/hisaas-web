@@ -5,18 +5,6 @@
                 <el-breadcrumb-item><i class="el-icon-menu"></i> 首页</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <div class="schart">
-        <div class="content-title">供水设备图</div>
-        <schart canvasId="energy" width="500" height="300" :data="data1" type="line" :options="options1"></schart>
-        </div>
-        <div class="schart">
-        <div class="content-title">车辆状态图</div>
-        <schart canvasId="car" width="500" height="300" :data="data2" type="pie" :options="options2"></schart>
-        </div>
-        <div class="schart">
-        <div class="content-title">维修单状态图</div>
-        <schart canvasId="repairBill" width="500" height="300" :data="data3" type="pie" :options="options3"></schart>
-        </div>
     </div>
 </template>
 
