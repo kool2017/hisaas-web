@@ -45,7 +45,7 @@
 import sha256 from 'sha256'
 import { Base64 } from 'js-base64'
 export default {
-    data() {
+    data () {
         return {
             SYLOGINFX: {
                 suiLoginName: '',
@@ -70,7 +70,7 @@ export default {
             paneName: 'login'
         }
     },
-    created() {
+    created () {
         this.$notify({
             title: '演示系统操作说明',
             message: '登录用户aa密码aa',
@@ -79,7 +79,7 @@ export default {
         })
     },
     methods: {
-        loginForm(formName) {
+        loginForm (formName) {
             const self = this
             self.$refs[formName].validate((valid) => {
                 if (valid) {
@@ -94,57 +94,57 @@ export default {
             self.$http
                 .post('/user/preLogin.json', input)
                 .then(
-                    function (response) {
-                        // var pkgOut = JSON.parse(response.data)
-                        var pkgOut = response.data
-                        var userInf = pkgOut.SYUSRINFZ[0]
-                        var pwdA = input.SYLOGINFX[0].suiPwd + '|' + userInf.suiSalt
-                        var pwdB = input.SYLOGINFX[0].suiPwd + '|' + userInf.suiNewSalt
-                        for (var N = 0; N < userInf.suiHashTimes; N++) {
-                            pwdA = sha256(pwdA)
-                            pwdB = sha256(pwdB)
-                        }
-                        input.SYLOGINFX[0].suiPwd = ''
-                        input.SYLOGINFX[0].suiPwdA = pwdA
-                        input.SYLOGINFX[0].suiPwdB = pwdB
-                        input.SYLOGINFX[0].suiNewSalt = userInf.suiNewSalt
-                        self.$http
-                            .post('/user/login.json', input)
-                            .then(
-                                function (response) {
-                                    // let pkgOutEnd = JSON.parse(response.data)
-                                    let pkgOutEnd = response.data
-                                    let loginInfo = pkgOutEnd.SYCOMMUNZ[0].LOGIN_INFO
-                                    localStorage.setItem('userId', loginInfo.suiId);
-                                    localStorage.setItem('loginName', loginInfo.suiLoginName);
-                                    let face = loginInfo.suiFace;
-                                    if (face != '' && face != null) {
-                                        localStorage.setItem('face', face);
-                                    } else {
-                                        localStorage.setItem('face', '../../../static/img/KOOL.jpg');
-                                    }
-                                    localStorage.setItem('status', loginInfo.suiStatus);
-                                    self.$router.push('/home')
-                                    self.$message({
-                                        message: '欢迎登录',
-                                        type: 'success'
-                                    })
-                                }
-                            )
-                            .catch(
-                                function (err) {
-                                    console.log(err)
-                                    self.$message.error('登录失败')
-                                }
-                            )
+                function (response) {
+                    // var pkgOut = JSON.parse(response.data)
+                    var pkgOut = response.data
+                    var userInf = pkgOut.SYUSRINFZ[0]
+                    var pwdA = input.SYLOGINFX[0].suiPwd + '|' + userInf.suiSalt
+                    var pwdB = input.SYLOGINFX[0].suiPwd + '|' + userInf.suiNewSalt
+                    for (var N = 0; N < userInf.suiHashTimes; N++) {
+                        pwdA = sha256(pwdA)
+                        pwdB = sha256(pwdB)
                     }
+                    input.SYLOGINFX[0].suiPwd = ''
+                    input.SYLOGINFX[0].suiPwdA = pwdA
+                    input.SYLOGINFX[0].suiPwdB = pwdB
+                    input.SYLOGINFX[0].suiNewSalt = userInf.suiNewSalt
+                    self.$http
+                        .post('/user/login.json', input)
+                        .then(
+                        function (response) {
+                            // let pkgOutEnd = JSON.parse(response.data)
+                            let pkgOutEnd = response.data
+                            let loginInfo = pkgOutEnd.SYCOMMUNZ[0].LOGIN_INFO
+                            localStorage.setItem('userId', loginInfo.suiId);
+                            localStorage.setItem('loginName', loginInfo.suiLoginName);
+                            let face = loginInfo.suiFace;
+                            if (face != '' && face != null) {
+                                localStorage.setItem('face', face);
+                            } else {
+                                localStorage.setItem('face', '../../../static/img/KOOL.jpg');
+                            }
+                            localStorage.setItem('status', loginInfo.suiStatus);
+                            self.$router.push('/home')
+                            self.$message({
+                                message: '欢迎登录',
+                                type: 'success'
+                            })
+                        }
+                        )
+                        .catch(
+                        function (err) {
+                            console.log(err)
+                            self.$message.error('登录失败')
+                        }
+                        )
+                }
                 )
                 .catch(function (err) {
                     console.log(err)
                     self.$message.error('登录失败')
                 })
         },
-        registerForm() {
+        registerForm () {
             var input = {
                 SYREGINFX: [this.SYREGINFX]
             }
@@ -163,13 +163,12 @@ export default {
                     })
                     this.paneName = 'login'
                 }.bind(this))
-                .catch(function (errorMsg) {
-                    this.$alert(errorMsg,'错误提示',{
-                        confirmButtonText:'确定'
-                    })
+                .catch(function (err) {
+                    console.log(err)
+                    this.$message.error('注册失败')
                 }.bind(this))
         },
-        changeTab() {
+        changeTab () {
         }
     }
 }
@@ -177,35 +176,35 @@ export default {
 
 <style scoped>
 .login-wrap {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 .ms-title {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    margin-top: -230px;
-    text-align: center;
-    font-size: 30px;
-    color: #fff;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin-top: -230px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
 }
 .ms-login {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 280px;
-    height: 270px;
-    margin: -150px 0 0 -190px;
-    padding: 40px;
-    border-radius: 5px;
-    background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 280px;
+  height: 270px;
+  margin: -150px 0 0 -190px;
+  padding: 40px;
+  border-radius: 5px;
+  background: #fff;
 }
 .login-btn {
-    text-align: center;
+  text-align: center;
 }
 .login-btn button {
-    width: 100%;
-    height: 36px;
+  width: 100%;
+  height: 36px;
 }
 </style>

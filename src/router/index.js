@@ -115,6 +115,10 @@ export default new Router({
                 {
                     path: '/repair-booking',
                     component: resolve => require(['../components/page/operation/RepairBook.vue'], resolve) // 报修
+                },
+                {
+                    path: '/exam-open',
+                    component: resolve => require(['../components/page/pacs/CreateExamBook.vue'], resolve)
                 }
             ]
         },
